@@ -1,4 +1,4 @@
-# Data-Science-Techniques-in-Astrophysics
+# Data Science Techniques in Astrophysics
 
 This repository contains the files for the labs for ASTR3110 in S1 2021. There are a total of 3 labs with their own individual tasks. All packages have been updated as of 15/10/21. Throughout the labs, there are references to resources used whether taught within class or outside of class.
 
