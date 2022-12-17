@@ -29,7 +29,50 @@ from Imports import emcee
 ```
 
 # Lab 2 - Using GMM to Determine Star Cluster Membership
+## Summary 
+
 ## Data
+Again, using  an ADQL statement to retreive the data from [Gaia mission archive](http://gea.esac.esa.int/archive/):
+
+```
+SELECT source_id, dist.r_est, dist.r_lo, dist.r_hi, dist.r_len, dist.result_flag, dist.modality_flag, src.ra, src.dec, src.L, src.B, src.parallax, src.parallax_error, src.pmra, src.pmra_error, src.pmdec, src.pmdec_error, src.radial_velocity, src.radial_velocity_error, src.astrometric_chi2_al, src.astrometric_n_good_obs_al, src.phot_g_mean_mag, src.phot_bp_mean_mag,src.phot_rp_mean_mag, src.phot_g_mean_flux, src.phot_bp_mean_flux, src.phot_rp_mean_flux, src.phot_g_mean_flux_error, src.phot_bp_mean_flux_error, src.phot_rp_mean_flux_error, src.phot_bp_rp_excess_factor 
+FROM external.gaiadr2_geometric_distance as dist 
+JOIN gaiadr2.gaia_source AS src USING (source_id) 
+where CONTAINS(POINT('icrs', src.ra, src.dec), CIRCLE('icrs',116.3500,-37.9500,2))=1
+```
+## Useful Packages
+```pyrex
+from astropy.io.votable import parse
+from sklearn.mixture import GaussianMixture as GMM
+import seaborn as sns
+```
 
 # Lab 3 - Classifying Images using Artificial and Convolutional Neural Networks.
+## Summary 
+
 ## Data 
+The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 $\mu$m bands. There are 100 images of each object being planetary nebulae, HII regions and radio galaxies (PNE, HII, RG).
+
+## Useful Packages
+```pyrex
+import glob
+import itertools
+from scipy import ndimage
+from scipy import misc
+from matplotlib.colors import LogNorm
+from astropy.io import fits
+from sklearn.metrics import classification_report
+from sklearn.preprocessing import LabelBinarizer
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import confusion_matrix
+from keras import backend as K
+from keras.models import Sequential
+from keras.layers.core import Dense 
+from keras.optimizers import SGD
+from keras.layers.convolutional import Conv2D
+from keras.layers.convolutional import MaxPooling2D
+from keras.layers.core import Flatten
+from keras.layers.core import Activation
+from keras.layers.core import Dropout
+import os
+```
