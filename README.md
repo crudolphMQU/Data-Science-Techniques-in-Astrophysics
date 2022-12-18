@@ -30,6 +30,13 @@ from Imports import emcee
 
 # Lab 2 - Using GMM to Determine Star Cluster Membership
 ## Summary 
+Using position (RA, DEC), proper motion (pmRA, pmDEC) and distance measurements from GAIA to identify open star clusters with Gaussian Mixture Modelling (GMM). By checking the clustered stars, we can Identify which stars are most likely gravitationally bound members of the cluster. 
+
+We start off with data management (filtering and cleaning) followed by some visualisation to better understand the data we're working with, i.e. plotting the proper motion for the first cluster found by eye, we can see there are a large number of stars within the cluster that have similar proper motions. We conduct a filter such that the ratio of the fluxes for each colour band to it's error is greater than 10, this will help in reducing the number of noisy data points. 
+
+We use GMM to identify clusters of stars within the dataset, where we previously did this by eye using various plotting packages. We start experimenting with GMM using only 2 gaussian components (RA DEC) to fit the data and then move on to 4 components (RA, DEC, pmRA, pmDEC). After some experimentation, we were able to clearly show a tight cluster within the entire dataset. We also attempted to use a Bayesian Information Criteria (BIC) to determine the optimal number of components to use in GMM. 
+
+Lastly, we plot a colour-magnitude diagram of the different clusters found to visualise the cluster members evolution stage. This will provide insight to the colour of the star and it's brightness. 
 
 ## Data
 Again, using  an ADQL statement to retreive the data from [Gaia mission archive](http://gea.esac.esa.int/archive/):
@@ -49,9 +56,16 @@ import seaborn as sns
 
 # Lab 3 - Classifying Images using Artificial and Convolutional Neural Networks.
 ## Summary 
+Within the dataset we have 3 astrophysical objects being planetary nebulae, HII regions and radio galaxies (PNE, HII, RG) from the [CORNISH](https://cornish.leeds.ac.uk/public/index.php) survey to search for massive star formation regions. These regions ionise surrounding gas and emit radio wavelengths and can be detected as PNE and RG objects.
+
+In the first part of the lab we use Artificial Neural Networks (ANN) to classify the images using training and testing datasets. We found that HII and RG were more easily classified than PNE due to the complexity of PNE objects. We needed to prepare the data for the ANN which involved resizing, normalising and flattening the image. This is done as the ANN requires flattened 1D images and the data preparation does just this. We tweak the hyperparameters and evaluate the performance of the model afterwards. The hyperparameters that can be tweaked for ANN are the learning rate, momentum, number of epochs, number of extra layers and number of neurons in each layer. 
+
+In the second part of the lab we use Convolutional Neural Networks (CNN) to classify the images again to compare the performance to the ANN. The data preparation for the CNN model is similar to ANN except there are now 3 'colors' for the Spitzer telescope observation bands. So in this case, there is just one extra dimension compared to the ANN data structure. The number of hyperparameters that can be tweaked is the same as ANN, though we added the capability to have the same number of neurons or descending number of neurons for each extra layer added. 
+
+Lastly [TO BE COMPLETED], we performed some data augmentation to improve the CNN model.
 
 ## Data 
-The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 $\mu$m bands. There are 100 images of each object being planetary nebulae, HII regions and radio galaxies (PNE, HII, RG).
+The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 $\mu$m bands from the [CORNISH](https://cornish.leeds.ac.uk/public/index.php) survey. There are 100 images of each object (PNE, HII, RG).
 
 ## Useful Packages
 ```pyrex
