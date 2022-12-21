@@ -62,7 +62,7 @@ In the first part of the lab we use Artificial Neural Networks (ANN) to classify
 
 In the second part of the lab we use Convolutional Neural Networks (CNN) to classify the images again to compare the performance to the ANN. The data preparation for the CNN model is similar to ANN except there are now 3 'colors' for the Spitzer telescope observation bands. So in this case, there is just one extra dimension compared to the ANN data structure. The number of hyperparameters that can be tweaked is the same as ANN, though we added the capability to have the same number of neurons or descending number of neurons for each extra layer added. 
 
-Lastly [TO BE COMPLETED], we performed some data augmentation to improve the CNN model.
+Lastly, we performed some data augmentation to improve the CNN model. The first run of the tuned CNN model with the augmented data has significantly imrpoved results. The first run had an accuracy of 0.85 and minimised the loss function to 0.4. 
 
 ## Data 
 The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 $\mu$m bands from the [CORNISH](https://cornish.leeds.ac.uk/public/index.php) survey. There are 100 images of each object (PNE, HII, RG).
