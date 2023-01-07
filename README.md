@@ -65,7 +65,7 @@ In the second part of the lab we use Convolutional Neural Networks (CNN) to clas
 Lastly, we performed some data augmentation to improve the CNN model. The first run of the tuned CNN model with the augmented data has significantly imrpoved results. The first run had an accuracy of 0.85 and minimised the loss function to 0.4. 
 
 ## Data 
-The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 $\mu$m bands from the [CORNISH](https://cornish.leeds.ac.uk/public/index.php) survey. There are 100 images of each object (PNE, HII, RG).
+The data was collected and uploaded to a private git repository for the class to download and store safely. The filesize is too large to download and can be provided upon request. The data consists of Spitzer imaging in the 4.5, 5.8, and 8.0 mu_m bands from the [CORNISH](https://cornish.leeds.ac.uk/public/index.php) survey. There are 100 images of each object (PNE, HII, RG).
 
 ## Useful Packages
 ```pyrex
